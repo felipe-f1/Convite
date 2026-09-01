@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fbf6ee">
+<title>XV da Duda</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fbf6ee;--cream2:#f4ead9;--card:#fffdf9;
+  --ink:#3f2e28;--ink-soft:#7a6a5e;
+  --gold:#b8935a;--gold-deep:#9c7548;
+  --rose:#c97b96;--rose-deep:#a85c78;
+  --ring-gap:#fffdf9;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}html,body{margin:0;min-height:100%;overflow-x:hidden}
+body{background:var(--cream);color:var(--ink);font-family:"Montserrat",sans-serif}body.lock{overflow:hidden}
+button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.scene{position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 50% 0%,rgba(201,123,150,.08),transparent 45%),var(--cream);pointer-events:none}
+
+/* BRASÃO / MONOGRAMA */
+.crest{position:relative;width:clamp(220px,50vw,300px);margin:0 auto 20px}
+.crest.sm{width:clamp(148px,42vw,188px);margin-bottom:16px}
+.crest-crown{display:block;width:44%;margin:0 auto;position:relative;z-index:2;transform:translateY(35%)}
+.crest-ring{position:relative;width:100%;aspect-ratio:1;border-radius:50%;border:1.5px solid var(--gold);box-shadow:0 0 0 6px var(--ring-gap),0 0 0 7px rgba(184,147,90,.4);display:flex;align-items:center;justify-content:center;background:var(--card)}
+.crest-inner{text-align:center;padding:0 8%}
+.crest-name{font:clamp(38px,10vw,58px)/1 "Great Vibes",cursive;color:var(--rose-deep)}
+.crest-div{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px 0 6px}
+.crest-div i{width:22px;height:1px;background:var(--gold);display:block}
+.crest-gem{width:7px;height:7px;background:var(--rose);transform:rotate(45deg);display:inline-block;flex:none}
+.crest-xv{font:500 clamp(14px,3vw,19px) Cinzel,serif;letter-spacing:.32em;color:var(--gold-deep)}
+.crest-dot{position:absolute;width:8px;height:8px;background:var(--rose);transform:rotate(45deg);z-index:2}
+.crest-dot.n{top:-4px;left:50%;margin-left:-4px}
+.crest-dot.s{bottom:-4px;left:50%;margin-left:-4px}
+.crest-flourish{position:absolute;top:50%;width:20%;transform:translateY(-50%)}
+.crest-flourish.left{left:-16%}
+.crest-flourish.right{right:-16%;transform:translateY(-50%) scaleX(-1)}
+
+/* ABERTURA — PERGAMINHO ENROLADO */
+.kicker{text-align:center;font:500 clamp(9px,2vw,11px) Cinzel,serif;letter-spacing:.36em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:34px}
+.hint{text-align:center;font:italic 400 15px "Cormorant Garamond",serif;color:var(--ink-soft);margin-top:22px;opacity:.85;animation:pulse 2.4s ease-in-out infinite;transition:opacity .4s}
+.invite.open ~ .hint{opacity:0;pointer-events:none;animation:none}
+@keyframes pulse{50%{opacity:.35}}
+
+/* CONVITE COMPLETO */
+.hero{padding:clamp(56px,8vw,84px) 34px clamp(50px,7vw,74px)}
+.invite{position:relative;max-width:640px;margin:0 auto;cursor:pointer;--ring-gap:#fbf2dd;background:
+ radial-gradient(circle at 26% 8%,rgba(255,255,255,.5),transparent 36%),
+ repeating-linear-gradient(0deg,transparent 0 27px,rgba(148,104,44,.035) 28px 29px),
+ linear-gradient(175deg,#fbf2dd 0%,#f1e1bc 100%);
+ border-left:1px solid rgba(184,147,90,.45);border-right:1px solid rgba(184,147,90,.45);
+ box-shadow:0 26px 46px -28px rgba(120,86,40,.35);text-align:center;
+ display:grid;grid-template-rows:minmax(0,0fr);transition:grid-template-rows 1.15s cubic-bezier(.22,.8,.2,1)}
+.invite.open{grid-template-rows:minmax(0,1fr);cursor:default}
+.invite-content{overflow:hidden;min-height:0}
+.invite-paper{padding:clamp(50px,8vw,80px) clamp(26px,7vw,64px) clamp(46px,7vw,70px)}
+.invite:before{content:"";position:absolute;inset:9px;border-left:1px solid rgba(184,147,90,.28);border-right:1px solid rgba(184,147,90,.28);pointer-events:none}
+.invite-rod{position:absolute;left:-18px;right:-18px;height:20px;border-radius:999px;z-index:2;background:linear-gradient(#f5e4b0,#c9a24d 38%,#8f6a3a 72%,#e2c079);box-shadow:0 4px 8px rgba(90,64,24,.3),inset 0 1px 1px rgba(255,255,255,.55)}
+.invite-rod.top{top:-10px}
+.invite-rod.bottom{bottom:-10px}
+.invite-rod:before,.invite-rod:after{content:"";position:absolute;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:radial-gradient(circle,#f8e7b4 0 20%,#bd8f44 30% 55%,#7c5323 60% 78%,#dcae5f 82%);box-shadow:0 3px 5px rgba(0,0,0,.28)}
+.invite-rod:before{left:-13px}
+.invite-rod:after{right:-13px}
+.invite-clasp{position:absolute;left:50%;top:0;width:30px;height:30px;transform:translate(-50%,-50%) rotate(45deg);background:var(--rose);border:1.5px solid #fffdf9;z-index:3;box-shadow:0 3px 6px rgba(120,60,80,.3);transition:opacity .35s,transform .35s}
+.invite.open .invite-clasp{opacity:0;transform:translate(-50%,-50%) rotate(45deg) scale(.3);pointer-events:none}
+.message{max-width:480px;margin:0 auto;font:400 clamp(16px,2.6vw,20px)/1.7 "Cormorant Garamond",serif;color:var(--ink-soft)}
+.rule{width:min(60%,220px);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px auto}
+.details{display:flex;justify-content:center;flex-wrap:wrap;gap:0;max-width:520px;margin:0 auto}
+.detail{flex:1 1 150px;padding:10px 16px;text-align:center;position:relative}
+.detail:not(:last-child):after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:60%;background:rgba(184,147,90,.35)}
+.detail svg{width:20px;height:20px;stroke:var(--gold-deep);stroke-width:1.4;fill:none;margin-bottom:8px}
+.detail b{display:block;font:500 9px Cinzel,serif;letter-spacing:.22em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:6px}
+.detail span{display:block;font:500 clamp(15px,2.4vw,18px) "Cormorant Garamond",serif;color:var(--ink)}
+.dress{margin:28px auto 0;font:italic 17px "Cormorant Garamond",serif;color:var(--ink-soft)}
+.dress strong{font-style:normal;color:var(--rose-deep)}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:12px 24px;border-radius:2px;text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font:500 10px Cinzel,serif;transition:.25s;border:1px solid var(--gold)}
+.btn.primary{color:#fff;background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn.primary:hover{background:#84603a}
+.btn.secondary{color:var(--gold-deep);background:transparent}
+.btn.secondary:hover{background:rgba(184,147,90,.08)}
+
+.gallery-wrap,.count-wrap,.footer{opacity:0;transform:translateY(20px);transition:.9s cubic-bezier(.2,.8,.2,1)}
+body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;transform:none}
+.gallery-wrap{padding:20px 18px 80px;text-align:center}
+.section-label{font:500 11px Cinzel,serif;letter-spacing:.36em;text-transform:uppercase;color:var(--rose-deep)}
+.section-title{font:clamp(38px,7vw,58px)/1 "Great Vibes",cursive;color:var(--ink);margin:10px 0 30px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2.4vw,18px);max-width:720px;margin:0 auto}
+.frame{position:relative;aspect-ratio:4/5;border:1px solid rgba(184,147,90,.5);overflow:hidden;background:var(--cream2);display:grid;place-items:center}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame-placeholder{display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gold-deep);opacity:.6}
+.frame-placeholder svg{width:22px;height:22px;stroke:var(--gold-deep)}
+.frame-placeholder span{font:500 9px Cinzel,serif;letter-spacing:.14em;text-transform:uppercase}
+.gallery-note{max-width:480px;margin:24px auto 0;font:italic 15px "Cormorant Garamond",serif;color:var(--ink-soft)}
+
+.count-wrap{padding:66px 18px 78px;text-align:center;background:linear-gradient(180deg,transparent,rgba(201,123,150,.07),transparent)}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(70px,110px));justify-content:center;gap:12px}
+.unit{padding:16px 8px;border:1px solid rgba(184,147,90,.4);background:var(--card)}
+.unit strong{display:block;font:500 clamp(26px,4.4vw,42px) Cinzel,serif;color:var(--gold-deep)}
+.unit span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-deep)}
+
+.footer{text-align:center;padding:16px 18px 60px;color:var(--ink-soft)}
+.monogram{width:56px;height:56px;margin:0 auto 14px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:30px "Great Vibes",cursive;color:var(--rose-deep)}
+.footer p{margin:0;font:italic 16px "Cormorant Garamond",serif}
+
+@media(max-width:560px){.hero{padding-left:22px;padding-right:22px}.invite-rod{left:-10px;right:-10px;height:16px}.invite-rod:before,.invite-rod:after{width:19px;height:19px}.invite-rod:before{left:-9px}.invite-rod:after{right:-9px}.details{flex-direction:column}.detail{padding:14px 10px}.detail:not(:last-child):after{right:auto;bottom:0;left:50%;transform:translateX(-50%);width:50%;height:1px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.countdown{grid-template-columns:repeat(2,minmax(100px,140px))}.actions{flex-direction:column}.btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important}}
+</style>
+</head>
+<body class="lock">
+<div class="scene"></div>
+
+<main>
+<section class="hero">
+  <div class="kicker">Você está convidado(a) para celebrar</div>
+  <article class="invite" id="invite" role="button" tabindex="0" aria-label="Toque para abrir o pergaminho">
+    <div class="invite-rod top" aria-hidden="true"></div>
+    <div class="invite-rod bottom" aria-hidden="true"></div>
+    <div class="invite-clasp" aria-hidden="true"></div>
+    <div class="invite-content"><div class="invite-paper">
+      <div class="crest">
+        <svg class="crest-crown" viewBox="0 0 100 64" fill="none" aria-hidden="true"><path d="M8 52 8 34 20 20 32 40 50 10 68 40 80 20 92 34 92 52Z" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><line x1="8" y1="52" x2="92" y2="52" stroke="#b8935a" stroke-width="1.6" stroke-linecap="round"/><circle cx="20" cy="20" r="2.2" fill="#b8935a"/><circle cx="50" cy="10" r="2.6" fill="#c97b96"/><circle cx="80" cy="20" r="2.2" fill="#b8935a"/></svg>
+        <div class="crest-ring">
+          <span class="crest-dot n"></span><span class="crest-dot s"></span>
+          <svg class="crest-flourish left" viewBox="0 0 60 20" fill="none" aria-hidden="true"><path d="M58 10c-14-8-30-8-40 0" stroke="#b8935a" stroke-width="1.2" stroke-linecap="round"/><rect x="1" y="6" width="8" height="8" fill="none" stroke="#c97b96" stroke-width="1.2" transform="rotate(45 5 10)"/></svg>
+          <svg class="crest-flourish right" viewBox="0 0 60 20" fill="none" aria-hidden="true"><path d="M58 10c-14-8-30-8-40 0" stroke="#b8935a" stroke-width="1.2" stroke-linecap="round"/><rect x="1" y="6" width="8" height="8" fill="none" stroke="#c97b96" stroke-width="1.2" transform="rotate(45 5 10)"/></svg>
+          <div class="crest-inner">
+            <div class="crest-name" id="mainName">Duda</div>
+            <div class="crest-div"><i></i><span class="crest-gem"></span><i></i></div>
+            <div class="crest-xv">XV</div>
+          </div>
+        </div>
+      </div>
+      <p class="message" id="msgText">Uma noite criada para transformar sonhos em lembranças. Com muito carinho, esperamos você para celebrar este capítulo tão especial.</p>
+      <div class="rule"></div>
+      <div class="details">
+        <div class="detail"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b>Data</b><span id="evtDate">13 de novembro de 2026</span></div>
+        <div class="detail"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><b>Horário</b><span id="evtTime">19 horas</span></div>
+        <div class="detail"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><b>Local</b><span id="evtLocal">Endereço a definir</span></div>
+      </div>
+      <p class="dress">Traje sugerido: <strong id="dressCode">esporte fino</strong></p>
+      <div class="actions"><a class="btn primary" href="#" id="rsvpBtn">Confirmar presença</a><a class="btn secondary" href="#contagem" id="revealBtn">Ver contagem regressiva</a></div>
+    </div></div>
+  </article>
+  <div class="hint">Toque no pergaminho para abrir</div>
+</section>
+
+<section class="gallery-wrap" id="galeria">
+  <div class="section-label">Momentos</div><h2 class="section-title">Um pouco da nossa Duda</h2>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="frame"><div class="frame-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg><span>Em breve</span></div></div>
+    <div class="frame"><div class="frame-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg><span>Em breve</span></div></div>
+    <div class="frame"><div class="frame-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg><span>Em breve</span></div></div>
+    <div class="frame"><div class="frame-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg><span>Em breve</span></div></div>
+    <div class="frame"><div class="frame-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg><span>Em breve</span></div></div>
+    <div class="frame"><div class="frame-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg><span>Em breve</span></div></div>
+  </div>
+  <p class="gallery-note" id="galleryNote">As fotos serão adicionadas em breve. ✨</p>
+</section>
+
+<section class="count-wrap" id="contagem">
+  <div class="section-label">Contagem regressiva</div><h2 class="section-title">O grande dia está chegando</h2>
+  <div class="countdown"><div class="unit"><strong id="days">000</strong><span>Dias</span></div><div class="unit"><strong id="hours">00</strong><span>Horas</span></div><div class="unit"><strong id="minutes">00</strong><span>Minutos</span></div><div class="unit"><strong id="seconds">00</strong><span>Segundos</span></div></div>
+</section>
+<footer class="footer"><div class="monogram" id="monogram">D</div><p id="footerText">Com carinho, Duda e família</p></footer>
+</main>
+
+<script>
+if(location.hash){history.replaceState(null,'',location.pathname+location.search)}
+if('scrollRestoration' in history){history.scrollRestoration='manual'}
+window.scrollTo(0,0);
+
+/* ============================================================
+   CONFIGURAÇÃO — edite só aqui para personalizar o convite
+   ============================================================ */
+const CONFIG={
+  name:'Duda',                              // nome da aniversariante
+  dateISO:'2026-11-13T21:00:00-03:00',      // data/hora do evento (usada na contagem regressiva)
+  dateLabel:'13 de novembro de 2026',       // data exibida por extenso
+  timeLabel:'21 horas',                     // horário exibido
+  address:'R. Dom Braz Baltazar, 148 - Cachoeirinha, Belo Horizonte',
+  addressMapUrl:'https://www.google.com/maps/search/?api=1&query=R.+Dom+Braz+Baltazar%2C+148+-+Cachoeirinha%2C+Belo+Horizonte', // deixa "Local" clicável, abrindo no Google Maps
+  dressCode:'esporte fino',
+  message:'Uma noite criada para transformar sonhos em lembranças. Com muito carinho, esperamos você para celebrar este capítulo tão especial.',
+  footerText:'Com carinho, Duda e família',
+  whatsappNumber:'5531991704673',           // número com DDI+DDD, só dígitos. Ex: '5511999999999' — vazio mantém aviso
+  whatsappMessage:'Olá! Confirmo presença no XV de Duda 🎉',
+  photos:['fotos/foto1.jpg','fotos/foto2.jpg','fotos/foto3.jpg','fotos/foto4.jpg','fotos/foto5.jpg']
+};
+
+function applyConfig(){
+  document.title=`XV da ${CONFIG.name}`;
+  const set=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html};
+  set('mainName',CONFIG.name);
+  set('msgText',CONFIG.message);
+  set('evtDate',CONFIG.dateLabel);
+  set('evtTime',CONFIG.timeLabel);
+  set('dressCode',CONFIG.dressCode);
+  set('monogram',CONFIG.name.charAt(0).toUpperCase());
+  set('footerText',CONFIG.footerText);
+
+  const localEl=document.getElementById('evtLocal');
+  if(localEl){
+    localEl.textContent=CONFIG.address;
+    if(CONFIG.addressMapUrl){
+      const link=document.createElement('a');
+      link.href=CONFIG.addressMapUrl;link.target='_blank';link.rel='noopener';
+      link.style.color='inherit';link.style.textDecoration='underline';
+      link.textContent=CONFIG.address;
+      localEl.innerHTML='';localEl.appendChild(link);
+    }
+  }
+
+  const rsvp=document.getElementById('rsvpBtn');
+  if(rsvp){
+    if(CONFIG.whatsappNumber){
+      rsvp.href=`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+      rsvp.target='_blank';rsvp.rel='noopener';
+    }else{
+      rsvp.href='#';
+      rsvp.addEventListener('click',e=>{e.preventDefault();alert('Configure CONFIG.whatsappNumber no script para ativar a confirmação por WhatsApp.')});
+    }
+  }
+
+  document.querySelectorAll('#galleryGrid .frame').forEach((frame,i)=>{
+    const src=CONFIG.photos[i];
+    if(!src)return;
+    const img=new Image();
+    img.alt=`Foto ${i+1} de ${CONFIG.name}`;
+    img.onload=()=>{frame.innerHTML='';frame.appendChild(img)};
+    img.src=src;
+  });
+  if(CONFIG.photos.length)set('galleryNote','');
+}
+applyConfig();
+
+const invite=document.getElementById('invite');
+function openScroll(){
+  if(invite.classList.contains('open'))return;
+  invite.classList.add('open');
+  setTimeout(()=>{document.body.classList.remove('lock')},1150);
+}
+invite.addEventListener('click',openScroll);
+invite.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openScroll();}});
+
+document.getElementById('revealBtn').addEventListener('click',e=>{
+  e.preventDefault();
+  document.body.classList.add('ready');
+  requestAnimationFrame(()=>{
+    document.getElementById('contagem').scrollIntoView({behavior:'smooth'});
+  });
+});
+window.addEventListener('load',()=>window.scrollTo(0,0));
+
+const target=new Date(CONFIG.dateISO);function tick(){let d=Math.max(0,target-new Date());const days=Math.floor(d/86400000);d%=86400000;const h=Math.floor(d/3600000);d%=3600000;const m=Math.floor(d/60000);const s=Math.floor((d%60000)/1000);document.getElementById('days').textContent=String(days).padStart(3,'0');document.getElementById('hours').textContent=String(h).padStart(2,'0');document.getElementById('minutes').textContent=String(m).padStart(2,'0');document.getElementById('seconds').textContent=String(s).padStart(2,'0')}tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
