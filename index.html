@@ -52,12 +52,22 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .invite{position:relative;max-width:640px;margin:0 auto;cursor:pointer;box-shadow:0 26px 46px -28px rgba(120,86,40,.35);text-align:center;
  display:grid;grid-template-rows:minmax(0,0fr);transition:grid-template-rows 1.15s cubic-bezier(.22,.8,.2,1)}
 .invite.open{grid-template-rows:minmax(0,1fr);cursor:default}
-.invite-content{overflow:hidden;min-height:0;position:relative;--ring-gap:#fbf2dd;background:
- radial-gradient(circle at 26% 8%,rgba(255,255,255,.5),transparent 36%),
- repeating-linear-gradient(0deg,transparent 0 27px,rgba(148,104,44,.035) 28px 29px),
- linear-gradient(175deg,#fbf2dd 0%,#f1e1bc 100%);
+.invite-content{overflow:hidden;min-height:0;position:relative;--ring-gap:#f1e4c2;background:
+ radial-gradient(ellipse 60% 55% at 50% 46%,transparent 45%,rgba(112,76,32,.16) 100%),
+ radial-gradient(ellipse 17% 11% at 11% 16%,rgba(107,66,26,.22),transparent 70%),
+ radial-gradient(ellipse 22% 13% at 90% 10%,rgba(107,66,26,.17),transparent 70%),
+ radial-gradient(ellipse 15% 10% at 20% 85%,rgba(107,66,26,.2),transparent 70%),
+ radial-gradient(ellipse 24% 14% at 82% 90%,rgba(107,66,26,.16),transparent 70%),
+ radial-gradient(ellipse 13% 9% at 63% 42%,rgba(107,66,26,.12),transparent 70%),
+ radial-gradient(ellipse 19% 11% at 35% 63%,rgba(107,66,26,.13),transparent 70%),
+ radial-gradient(ellipse 12% 8% at 55% 78%,rgba(107,66,26,.11),transparent 70%),
+ radial-gradient(circle at 26% 8%,rgba(255,255,255,.42),transparent 36%),
+ repeating-linear-gradient(0deg,transparent 0 27px,rgba(120,80,30,.05) 28px 29px),
+ repeating-linear-gradient(90deg,transparent 0 31px,rgba(120,80,30,.025) 32px 33px),
+ linear-gradient(165deg,#f4ead0 0%,#e9d4a4 55%,#dcc38c 100%);
  clip-path:polygon(0% 0%,100% 0%,100% 3%,98.3% 6%,100% 9%,98.3% 12%,100% 15%,98.3% 18%,100% 21%,98.3% 24%,100% 27%,98.3% 30%,100% 33%,98.3% 36%,100% 39%,98.3% 42%,100% 45%,98.3% 48%,100% 51%,98.3% 54%,100% 57%,98.3% 60%,100% 63%,98.3% 66%,100% 69%,98.3% 72%,100% 75%,98.3% 78%,100% 81%,98.3% 84%,100% 87%,98.3% 90%,100% 93%,98.3% 96%,100% 100%,0% 100%,1.7% 96%,0% 93%,1.7% 90%,0% 87%,1.7% 84%,0% 81%,1.7% 78%,0% 75%,1.7% 72%,0% 69%,1.7% 66%,0% 63%,1.7% 60%,0% 57%,1.7% 54%,0% 51%,1.7% 48%,0% 45%,1.7% 42%,0% 39%,1.7% 36%,0% 33%,1.7% 30%,0% 27%,1.7% 24%,0% 21%,1.7% 18%,0% 15%,1.7% 12%,0% 9%,1.7% 6%,0% 3%,0% 0%)}
-.invite-content:before{content:"";position:absolute;inset:9px;border:1px solid rgba(184,147,90,.28);pointer-events:none}
+.invite-content:before{content:"";position:absolute;inset:9px;border:1px solid rgba(140,96,40,.32);pointer-events:none;z-index:1}
+.invite-content:after{content:"";position:absolute;inset:0;background:#fff;filter:url(#parchmentGrain);opacity:.5;mix-blend-mode:multiply;pointer-events:none;z-index:-1}
 .invite-paper{padding:clamp(50px,8vw,80px) clamp(26px,7vw,64px) clamp(46px,7vw,70px)}
 .invite-rod{position:absolute;left:-16px;right:-16px;height:18px;border-radius:999px;z-index:2;background:linear-gradient(#f5e4b0,#c9a24d 38%,#8f6a3a 72%,#e2c079);box-shadow:0 4px 8px rgba(90,64,24,.3),inset 0 1px 1px rgba(255,255,255,.55)}
 .invite-rod.top{top:-9px}
@@ -114,6 +124,7 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
 </style>
 </head>
 <body class="lock">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="parchmentGrain"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .09 0"/></filter></svg>
 <div class="scene"></div>
 
 <main>
