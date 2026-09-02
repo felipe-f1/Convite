@@ -158,7 +158,7 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
 
 <section class="count-wrap" id="contagem">
   <div class="section-label">Contagem regressiva</div><h2 class="section-title">O grande dia está chegando</h2>
-  <div class="countdown"><div class="unit"><strong id="days">000</strong><span>Dias</span></div><div class="unit"><strong id="hours">00</strong><span>Horas</span></div><div class="unit"><strong id="minutes">00</strong><span>Minutos</span></div><div class="unit"><strong id="seconds">00</strong><span>Segundos</span></div></div>
+  <div class="countdown"><div class="unit"><strong id="days">0</strong><span>Dias</span></div><div class="unit"><strong id="hours">00</strong><span>Horas</span></div><div class="unit"><strong id="minutes">00</strong><span>Minutos</span></div><div class="unit"><strong id="seconds">00</strong><span>Segundos</span></div></div>
 </section>
 <footer class="footer"><div class="monogram" id="monogram">D</div><p id="footerText">Com carinho, Duda e família</p></footer>
 </main>
@@ -250,7 +250,7 @@ document.getElementById('revealBtn').addEventListener('click',e=>{
 });
 window.addEventListener('load',()=>window.scrollTo(0,0));
 
-const target=new Date(CONFIG.dateISO);function tick(){let d=Math.max(0,target-new Date());const days=Math.floor(d/86400000);d%=86400000;const h=Math.floor(d/3600000);d%=3600000;const m=Math.floor(d/60000);const s=Math.floor((d%60000)/1000);document.getElementById('days').textContent=String(days).padStart(3,'0');document.getElementById('hours').textContent=String(h).padStart(2,'0');document.getElementById('minutes').textContent=String(m).padStart(2,'0');document.getElementById('seconds').textContent=String(s).padStart(2,'0')}tick();setInterval(tick,1000);
+const target=new Date(CONFIG.dateISO);function tick(){let d=Math.max(0,target-new Date());const days=Math.floor(d/86400000);d%=86400000;const h=Math.floor(d/3600000);d%=3600000;const m=Math.floor(d/60000);const s=Math.floor((d%60000)/1000);document.getElementById('days').textContent=String(days);document.getElementById('hours').textContent=String(h).padStart(2,'0');document.getElementById('minutes').textContent=String(m).padStart(2,'0');document.getElementById('seconds').textContent=String(s).padStart(2,'0')}tick();setInterval(tick,1000);
 </script>
 </body>
 </html>
