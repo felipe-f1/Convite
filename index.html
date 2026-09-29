@@ -54,14 +54,6 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 
 /* CONVITE COMPLETO — PERGAMINHO COM IMAGEM REAL */
 .hero{padding:clamp(30px,6vw,56px) 18px clamp(50px,7vw,74px)}
-.invite-frame{max-width:960px;margin:0 auto;background-color:#634127;
- border-left:clamp(18px,3.5vw,32px) solid #6c4c30;border-right:clamp(18px,3.5vw,32px) solid #6c4c30;
- padding-top:clamp(46px,7vw,76px);padding-bottom:clamp(46px,7vw,76px);
- background-image:url(img/frame-top.webp),url(img/frame-bottom.webp);
- background-repeat:no-repeat,no-repeat;
- background-position:top center,bottom center;
- background-size:100% clamp(46px,7vw,76px),100% clamp(46px,7vw,76px);
- box-shadow:0 30px 54px -20px rgba(40,25,10,.55)}
 .invite{position:relative;max-width:900px;margin:0 auto;cursor:pointer;text-align:center;
  filter:drop-shadow(0 22px 34px rgba(90,64,24,.32));
  display:grid;grid-template-columns:100%;grid-template-rows:auto minmax(0,0fr) auto;transition:grid-template-rows 1.15s cubic-bezier(.22,.8,.2,1)}
@@ -70,8 +62,8 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .invite-cap.top{grid-row:1}
 .invite-cap.bottom{grid-row:3}
 .invite-content{grid-row:2;grid-column:1;position:relative;overflow:hidden;min-height:0}
-.invite-middle-bg{position:absolute;inset:0;background-image:url(img/scroll-middle.webp);background-size:100% 100%;background-repeat:no-repeat;z-index:0}
-.invite-paper{position:relative;z-index:1;width:72%;margin:0 auto;padding:clamp(18px,4vw,38px) 0 clamp(30px,5vw,54px);--ring-gap:#cdbb9c}
+.invite-middle-bg{position:absolute;inset:0;background-image:url(img/convite-middle.webp);background-size:100% 100%;background-repeat:no-repeat;z-index:0}
+.invite-paper{position:relative;z-index:1;width:62%;margin:0 auto;padding:clamp(18px,4vw,38px) 0 clamp(30px,5vw,54px);--ring-gap:#cdbb9c}
 .invite-clasp{grid-row:1;grid-column:1;align-self:end;justify-self:center;transform:translateY(50%) rotate(45deg);width:26px;height:26px;background:var(--rose);border:1.5px solid #fffdf9;box-shadow:0 3px 6px rgba(120,60,80,.3);z-index:5;transition:opacity .35s,transform .35s}
 .invite.open .invite-clasp{opacity:0;transform:translateY(50%) rotate(45deg) scale(.3);pointer-events:none}
 .message{max-width:480px;margin:0 auto;font:400 clamp(16px,2.6vw,20px)/1.7 "Cormorant Garamond",serif;color:var(--ink-soft)}
@@ -123,7 +115,7 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
 .monogram{width:56px;height:56px;margin:0 auto 14px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:30px "Great Vibes",cursive;color:var(--rose-deep)}
 .footer p{margin:0;font:italic 16px "Cormorant Garamond",serif}
 
-@media(max-width:560px){.hero{padding-left:14px;padding-right:14px}.invite-paper{width:70%}.details{flex-direction:column}.detail{padding:14px 10px}.detail:not(:last-child):after{right:auto;bottom:0;left:50%;transform:translateX(-50%);width:50%;height:1px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.countdown{grid-template-columns:repeat(2,minmax(100px,140px))}.actions{flex-direction:column}.btn{width:100%}}
+@media(max-width:560px){.hero{padding-left:14px;padding-right:14px}.invite-paper{width:65%}.details{flex-direction:column}.detail{padding:14px 10px}.detail:not(:last-child):after{right:auto;bottom:0;left:50%;transform:translateX(-50%);width:50%;height:1px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.countdown{grid-template-columns:repeat(2,minmax(100px,140px))}.actions{flex-direction:column}.btn{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important}}
 </style>
 </head>
@@ -134,9 +126,8 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
 <main>
 <section class="hero">
   <div class="kicker reveal">Você está convidado(a) para celebrar</div>
-  <div class="invite-frame">
   <article class="invite" id="invite" role="button" tabindex="0" aria-label="Toque para abrir o pergaminho">
-    <img class="invite-cap top" src="img/scroll-top.webp" alt="" aria-hidden="true">
+    <img class="invite-cap top" src="img/convite-top.webp" alt="" aria-hidden="true">
     <div class="invite-clasp" aria-hidden="true"></div>
     <div class="invite-content"><div class="invite-middle-bg" aria-hidden="true"></div><div class="invite-paper">
       <div class="crest"><img class="crest-logo" src="img/logo.png" alt="Duda XV"></div>
@@ -150,9 +141,8 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
       <p class="dress">Traje sugerido: <strong id="dressCode">esporte fino</strong></p>
       <div class="actions reveal"><a class="btn primary" href="#" id="rsvpBtn">Confirmar presença</a><a class="btn secondary" href="#contagem" id="revealBtn">Ver contagem regressiva</a></div>
     </div></div>
-    <img class="invite-cap bottom" src="img/scroll-bottom.webp" alt="" aria-hidden="true">
+    <img class="invite-cap bottom" src="img/convite-bottom.webp" alt="" aria-hidden="true">
   </article>
-  </div>
   <div class="hint">Toque no pergaminho para abrir</div>
 </section>
 
