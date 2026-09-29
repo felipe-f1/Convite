@@ -25,10 +25,6 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .particle{position:absolute;border-radius:50%;background:var(--p-color,var(--gold));box-shadow:0 0 9px var(--p-color,rgba(184,147,90,.7));opacity:0;animation:rise var(--dur) linear infinite}
 @keyframes rise{0%{transform:translate3d(0,105vh,0) scale(.4);opacity:0}10%{opacity:.85}82%{opacity:.55}100%{transform:translate3d(var(--drift),-10vh,0) scale(1.3);opacity:0}}
-.crest-ring{overflow:hidden}
-.crest-ring:after{content:"";position:absolute;inset:-2px;border-radius:50%;background:conic-gradient(from var(--shine-angle,0deg),transparent 0 82%,rgba(244,216,137,.9) 90%,transparent 98%);opacity:.55;animation:shine-spin 5s linear infinite;pointer-events:none}
-@keyframes shine-spin{to{--shine-angle:360deg}}
-@property --shine-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
 .invite-clasp{animation:clasp-glow 2.2s ease-in-out infinite}
 @keyframes clasp-glow{0%,100%{box-shadow:0 3px 6px rgba(120,60,80,.3),0 0 0 0 rgba(201,123,150,.5)}50%{box-shadow:0 3px 6px rgba(120,60,80,.3),0 0 0 7px rgba(201,123,150,0)}}
 
@@ -45,22 +41,10 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .reveal-stagger.in-view>*:nth-child(6){transition-delay:.44s}
 
 /* BRASÃO / MONOGRAMA */
-.crest{position:relative;width:clamp(220px,50vw,300px);margin:0 auto 20px}
-.crest.sm{width:clamp(148px,42vw,188px);margin-bottom:16px}
-.crest-crown{display:block;width:44%;margin:0 auto;position:relative;z-index:2;transform:translateY(58%)}
-.crest-ring{position:relative;width:100%;aspect-ratio:1;border-radius:50%;border:1.5px solid var(--gold);box-shadow:0 0 0 6px var(--ring-gap),0 0 0 7px rgba(184,147,90,.4);display:flex;align-items:center;justify-content:center;background:var(--card)}
-.crest-inner{text-align:center;padding:0 8%}
-.crest-name{font:clamp(38px,10vw,58px)/1 "Great Vibes",cursive;color:var(--rose-deep)}
-.crest-div{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px 0 6px}
-.crest-div i{width:22px;height:1px;background:var(--gold);display:block}
-.crest-gem{width:7px;height:7px;background:var(--rose);transform:rotate(45deg);display:inline-block;flex:none}
-.crest-xv{font:500 clamp(14px,3vw,19px) Cinzel,serif;letter-spacing:.32em;color:var(--gold-deep)}
-.crest-dot{position:absolute;width:8px;height:8px;background:var(--rose);transform:rotate(45deg);z-index:2}
-.crest-dot.n{top:-4px;left:50%;margin-left:-4px}
-.crest-dot.s{bottom:-4px;left:50%;margin-left:-4px}
-.crest-flourish{position:absolute;top:50%;width:20%;transform:translateY(-50%)}
-.crest-flourish.left{left:-16%}
-.crest-flourish.right{right:-16%;transform:translateY(-50%) scaleX(-1)}
+.crest{position:relative;width:clamp(220px,50vw,300px);margin:0 auto 20px;overflow:hidden;border-radius:50%;background:radial-gradient(circle,rgba(255,253,246,.9) 58%,rgba(255,253,246,.15) 80%,transparent 92%)}
+.crest-logo{display:block;width:100%;height:auto}
+.crest:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.6) 50%,transparent 60%);transform:translateX(-120%);animation:crest-shine 5.5s ease-in-out infinite;pointer-events:none}
+@keyframes crest-shine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
 
 /* ABERTURA — PERGAMINHO ENROLADO */
 .kicker{text-align:center;font:500 clamp(9px,2vw,11px) Cinzel,serif;letter-spacing:.36em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:34px}
@@ -146,19 +130,7 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
     <img class="invite-cap top" src="img/scroll-top.webp" alt="" aria-hidden="true">
     <div class="invite-clasp" aria-hidden="true"></div>
     <div class="invite-content"><div class="invite-middle-bg" aria-hidden="true"></div><div class="invite-paper">
-      <div class="crest">
-        <svg class="crest-crown" viewBox="0 0 100 64" fill="none" aria-hidden="true"><path d="M8 52 8 34 20 20 32 40 50 10 68 40 80 20 92 34 92 52Z" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><line x1="8" y1="52" x2="92" y2="52" stroke="#b8935a" stroke-width="1.6" stroke-linecap="round"/><circle cx="20" cy="20" r="2.2" fill="#b8935a"/><circle cx="50" cy="10" r="2.6" fill="#c97b96"/><circle cx="80" cy="20" r="2.2" fill="#b8935a"/></svg>
-        <div class="crest-ring">
-          <span class="crest-dot n"></span><span class="crest-dot s"></span>
-          <svg class="crest-flourish left" viewBox="0 0 60 20" fill="none" aria-hidden="true"><path d="M58 10c-14-8-30-8-40 0" stroke="#b8935a" stroke-width="1.2" stroke-linecap="round"/><rect x="1" y="6" width="8" height="8" fill="none" stroke="#c97b96" stroke-width="1.2" transform="rotate(45 5 10)"/></svg>
-          <svg class="crest-flourish right" viewBox="0 0 60 20" fill="none" aria-hidden="true"><path d="M58 10c-14-8-30-8-40 0" stroke="#b8935a" stroke-width="1.2" stroke-linecap="round"/><rect x="1" y="6" width="8" height="8" fill="none" stroke="#c97b96" stroke-width="1.2" transform="rotate(45 5 10)"/></svg>
-          <div class="crest-inner">
-            <div class="crest-name" id="mainName">Duda</div>
-            <div class="crest-div"><i></i><span class="crest-gem"></span><i></i></div>
-            <div class="crest-xv">XV</div>
-          </div>
-        </div>
-      </div>
+      <div class="crest"><img class="crest-logo" src="img/logo.png" alt="Duda XV"></div>
       <p class="message reveal" id="msgText">Uma noite criada para transformar sonhos em lembranças. Com muito carinho, esperamos você para celebrar este capítulo tão especial.</p>
       <div class="rule"></div>
       <div class="details reveal-stagger">
@@ -220,7 +192,6 @@ const CONFIG={
 function applyConfig(){
   document.title=`XV da ${CONFIG.name}`;
   const set=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html};
-  set('mainName',CONFIG.name);
   set('msgText',CONFIG.message);
   set('evtDate',CONFIG.dateLabel);
   set('evtTime',CONFIG.timeLabel);
