@@ -54,6 +54,14 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 
 /* CONVITE COMPLETO — PERGAMINHO COM IMAGEM REAL */
 .hero{padding:clamp(30px,6vw,56px) 18px clamp(50px,7vw,74px)}
+.invite-frame{max-width:960px;margin:0 auto;
+ border-left:clamp(18px,3.5vw,32px) solid #6c4c30;border-right:clamp(18px,3.5vw,32px) solid #6c4c30;
+ padding-top:clamp(46px,7vw,76px);padding-bottom:clamp(46px,7vw,76px);
+ background-image:url(img/frame-top.webp),url(img/frame-bottom.webp);
+ background-repeat:no-repeat,no-repeat;
+ background-position:top center,bottom center;
+ background-size:100% clamp(46px,7vw,76px),100% clamp(46px,7vw,76px);
+ box-shadow:0 30px 54px -20px rgba(40,25,10,.55)}
 .invite{position:relative;max-width:900px;margin:0 auto;cursor:pointer;text-align:center;
  filter:drop-shadow(0 22px 34px rgba(90,64,24,.32));
  display:grid;grid-template-columns:100%;grid-template-rows:auto minmax(0,0fr) auto;transition:grid-template-rows 1.15s cubic-bezier(.22,.8,.2,1)}
@@ -126,6 +134,7 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
 <main>
 <section class="hero">
   <div class="kicker reveal">Você está convidado(a) para celebrar</div>
+  <div class="invite-frame">
   <article class="invite" id="invite" role="button" tabindex="0" aria-label="Toque para abrir o pergaminho">
     <img class="invite-cap top" src="img/scroll-top.webp" alt="" aria-hidden="true">
     <div class="invite-clasp" aria-hidden="true"></div>
@@ -143,6 +152,7 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
     </div></div>
     <img class="invite-cap bottom" src="img/scroll-bottom.webp" alt="" aria-hidden="true">
   </article>
+  </div>
   <div class="hint">Toque no pergaminho para abrir</div>
 </section>
 
