@@ -68,15 +68,12 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .hint{text-align:center;font:italic 400 15px "Cormorant Garamond",serif;color:var(--ink-soft);margin-top:14px;opacity:.85;animation:pulse 2.4s ease-in-out infinite;transition:opacity .4s}
 .hero.opened .hint,.hero.opened .open-btn-wrap{opacity:0;pointer-events:none;animation:none}
 @keyframes pulse{50%{opacity:.35}}
-.hero-row{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,28px);flex-wrap:nowrap}
-@media(max-width:650px){.hero-row{flex-wrap:wrap}}
-.duda-photo-full{flex:0 0 auto;margin:0;width:clamp(120px,20vw,280px);aspect-ratio:3/4;border-radius:4px;overflow:hidden;box-shadow:0 20px 40px rgba(90,64,24,.3);transition:opacity .4s ease}
-.duda-photo-full img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-row{display:flex;align-items:center;justify-content:center}
 .open-btn-wrap{display:flex;justify-content:center;margin-top:26px;transition:opacity .4s ease}
 
 /* CONVITE COMPLETO — IMAGEM ÚNICA, SEM RECORTES */
 .hero{padding:clamp(30px,6vw,56px) 18px clamp(50px,7vw,74px)}
-.invite{position:relative;flex:0 1 640px;min-width:0;max-width:640px;margin:0 auto;cursor:pointer;text-align:center;
+.invite{position:relative;flex:0 1 720px;min-width:0;max-width:720px;margin:0 auto;cursor:pointer;text-align:center;
  aspect-ratio:1100/1467;
  background-image:url(img/convite-full.webp);background-size:100% 100%;background-repeat:no-repeat;
  filter:drop-shadow(0 22px 34px rgba(90,64,24,.32));
@@ -157,7 +154,6 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
 <section class="hero" id="heroSection">
   <div class="kicker reveal">Você está convidado(a) para celebrar</div>
   <div class="hero-row">
-    <figure class="duda-photo-full"><img src="fotos/foto1.jpg" alt="Duda"></figure>
     <article class="invite" id="invite" role="button" tabindex="0" aria-label="Toque para abrir o pergaminho">
       <div class="invite-clasp" aria-hidden="true"></div>
       <div class="invite-paper">
@@ -171,10 +167,9 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
           <div class="detail"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><b>Local</b><span id="evtLocal">Endereço a definir</span></div>
         </div>
         <p class="dress stagger">Traje sugerido: <strong id="dressCode">esporte fino</strong></p>
-        <div class="actions stagger"><a class="btn primary" href="#" id="rsvpBtn">Confirmar presença</a><a class="btn secondary" href="#contagem" id="revealBtn">Ver contagem regressiva</a></div>
+        <div class="actions stagger"><a class="btn primary" href="#" id="rsvpBtn">Confirmar presença</a><a class="btn secondary" href="#galeria" id="revealBtn">Ver contagem regressiva</a></div>
       </div>
     </article>
-    <figure class="duda-photo-full"><img src="fotos/foto1.jpg" alt="Duda"></figure>
   </div>
   <div class="open-btn-wrap"><button id="openBtn" class="btn primary" type="button">Abrir convite</button></div>
   <div class="hint">Toque no pergaminho para abrir</div>
@@ -316,7 +311,7 @@ document.getElementById('revealBtn').addEventListener('click',e=>{
   e.preventDefault();
   document.body.classList.add('ready');
   requestAnimationFrame(()=>{
-    document.getElementById('contagem').scrollIntoView({behavior:'smooth'});
+    document.getElementById('galeria').scrollIntoView({behavior:'smooth'});
   });
 });
 window.addEventListener('load',()=>window.scrollTo(0,0));
