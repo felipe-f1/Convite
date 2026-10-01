@@ -25,7 +25,7 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .particle{position:absolute;border-radius:50%;background:var(--p-color,var(--gold));box-shadow:0 0 9px var(--p-color,rgba(184,147,90,.7));opacity:0;animation:rise var(--dur) linear infinite}
 @keyframes rise{0%{transform:translate3d(0,105vh,0) scale(.4);opacity:0}10%{opacity:.85}82%{opacity:.55}100%{transform:translate3d(var(--drift),-10vh,0) scale(1.3);opacity:0}}
-.invite-clasp{animation:clasp-glow 2.2s ease-in-out infinite}
+.open-btn{animation:clasp-glow 2.2s ease-in-out infinite}
 @keyframes clasp-glow{0%,100%{box-shadow:0 3px 6px rgba(120,60,80,.3),0 0 0 0 rgba(201,123,150,.5)}50%{box-shadow:0 3px 6px rgba(120,60,80,.3),0 0 0 7px rgba(201,123,150,0)}}
 
 /* SELO DE CERA — INTRO */
@@ -81,8 +81,8 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .invite.show{opacity:1;transform:scale(1)}
 .invite.open{cursor:default}
 .invite-paper{position:absolute;top:20%;bottom:22%;left:19%;right:18%;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden}
-.invite-clasp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:26px;height:26px;background:var(--rose);border:1.5px solid #fffdf9;box-shadow:0 3px 6px rgba(120,60,80,.3);z-index:5;transition:opacity .35s,transform .35s}
-.invite.open .invite-clasp{opacity:0;transform:translate(-50%,-50%) rotate(45deg) scale(.3);pointer-events:none}
+.open-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;transition:opacity .35s,transform .35s}
+.invite.open .open-btn{opacity:0;transform:translate(-50%,-50%) scale(.3);pointer-events:none}
 .message{max-width:94%;margin:0 auto;font:400 clamp(9px,2vw,13px)/1.35 "Cormorant Garamond",serif;color:var(--ink-soft)}
 .rule{width:min(45%,120px);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:6px auto}
 .details{display:flex;justify-content:center;flex-wrap:wrap;gap:0;max-width:96%;margin:0 auto}
@@ -155,7 +155,7 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
   <div class="kicker reveal">Você está convidado(a) para celebrar</div>
   <div class="hero-row">
     <article class="invite" id="invite" role="button" tabindex="0" aria-label="Toque para abrir o pergaminho">
-      <div class="invite-clasp" aria-hidden="true"></div>
+      <button id="openBtn" class="btn primary open-btn" type="button">Abrir convite</button>
       <div class="invite-paper">
         <h1 class="gold-name stagger" id="goldName">Duda</h1>
         <div class="crest"><img class="crest-logo" src="img/logo.png" alt="Duda XV"></div>
@@ -171,7 +171,6 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
       </div>
     </article>
   </div>
-  <div class="open-btn-wrap"><button id="openBtn" class="btn primary" type="button">Abrir convite</button></div>
   <div class="hint">Toque no pergaminho para abrir</div>
 </section>
 
