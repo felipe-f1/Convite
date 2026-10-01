@@ -25,8 +25,6 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .particle{position:absolute;border-radius:50%;background:var(--p-color,var(--gold));box-shadow:0 0 9px var(--p-color,rgba(184,147,90,.7));opacity:0;animation:rise var(--dur) linear infinite}
 @keyframes rise{0%{transform:translate3d(0,105vh,0) scale(.4);opacity:0}10%{opacity:.85}82%{opacity:.55}100%{transform:translate3d(var(--drift),-10vh,0) scale(1.3);opacity:0}}
-.open-btn{animation:clasp-glow 2.2s ease-in-out infinite}
-@keyframes clasp-glow{0%,100%{box-shadow:0 3px 6px rgba(120,60,80,.3),0 0 0 0 rgba(201,123,150,.5)}50%{box-shadow:0 3px 6px rgba(120,60,80,.3),0 0 0 7px rgba(201,123,150,0)}}
 
 /* SELO DE CERA — INTRO */
 .intro{position:fixed;inset:0;background:linear-gradient(rgba(10,8,6,.6),rgba(10,8,6,.72)),url('fotos/foto1.jpg') center/cover no-repeat;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity 1.2s ease}
@@ -39,8 +37,7 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 @keyframes pulseSeal{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 .wax-seal.break{animation:breakSeal .8s forwards}
 @keyframes breakSeal{0%{transform:scale(1);opacity:1}100%{transform:scale(0);opacity:0}}
-.gold-name{font-family:"Great Vibes",cursive;font-size:clamp(34px,8vw,54px);margin:0 0 4px;background:linear-gradient(90deg,#5c3a1a,#a9701f,#e0a53d,#a9701f,#5c3a1a);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 2px rgba(70,40,15,.55));animation:goldFlow 4s linear infinite}
-@keyframes goldFlow{to{background-position:300% center}}
+.gold-name{font-family:"Great Vibes",cursive;font-size:clamp(34px,8vw,54px);margin:0 0 4px;color:var(--rose-deep);-webkit-text-stroke:1px var(--gold-deep);paint-order:stroke fill;filter:drop-shadow(0 1px 2px rgba(70,40,15,.4))}
 
 /* REVELAÇÃO EM CASCATA — DEPOIS QUE O PERGAMINHO ABRE */
 .stagger{opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
@@ -66,11 +63,7 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 
 /* ABERTURA — PERGAMINHO ENROLADO */
 .kicker{text-align:center;font:500 clamp(9px,2vw,11px) Cinzel,serif;letter-spacing:.36em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:34px}
-.hint{text-align:center;font:italic 400 15px "Cormorant Garamond",serif;color:var(--ink-soft);margin-top:14px;opacity:.85;animation:pulse 2.4s ease-in-out infinite;transition:opacity .4s}
-.hero.opened .hint,.hero.opened .open-btn-wrap{opacity:0;pointer-events:none;animation:none}
-@keyframes pulse{50%{opacity:.35}}
 .hero-row{display:flex;align-items:center;justify-content:center}
-.open-btn-wrap{display:flex;justify-content:center;margin-top:26px;transition:opacity .4s ease}
 
 /* CONVITE COMPLETO — IMAGEM ÚNICA, SEM RECORTES */
 .hero{padding:clamp(30px,6vw,56px) 10px clamp(50px,7vw,74px)}
@@ -82,8 +75,6 @@ button,a{font:inherit}.sr-only{position:absolute!important;width:1px;height:1px;
 .invite.show{opacity:1;transform:scale(1)}
 .invite.open{cursor:default}
 .invite-paper{position:absolute;top:15%;bottom:18%;left:25%;right:23%;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden}
-.open-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;transition:opacity .35s,transform .35s}
-.invite.open .open-btn{opacity:0;transform:translate(-50%,-50%) scale(.3);pointer-events:none}
 .message{max-width:94%;margin:0 auto;font:400 clamp(13px,2.8vw,17px)/1.45 "Cormorant Garamond",serif;color:var(--ink-soft)}
 .rule{width:min(45%,120px);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px auto}
 .details{display:flex;justify-content:center;flex-wrap:wrap;gap:0;max-width:96%;margin:0 auto}
@@ -155,7 +146,6 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
   <div class="kicker reveal">Você está convidado(a) para celebrar</div>
   <div class="hero-row">
     <article class="invite" id="invite" role="button" tabindex="0" aria-label="Toque para abrir o pergaminho">
-      <button id="openBtn" class="btn primary open-btn" type="button">Abrir convite</button>
       <div class="invite-paper">
         <h1 class="gold-name stagger" id="goldName">Duda</h1>
         <p class="message stagger" id="msgText">Uma noite criada para transformar sonhos em lembranças. Com muito carinho, esperamos você para celebrar este capítulo tão especial.</p>
@@ -171,7 +161,6 @@ body.ready .gallery-wrap,body.ready .count-wrap,body.ready .footer{opacity:1;tra
       </div>
     </article>
   </div>
-  <div class="hint">Toque no pergaminho para abrir</div>
 </section>
 
 <section class="gallery-wrap" id="galeria">
@@ -286,7 +275,6 @@ function openScroll(){
 }
 invite.addEventListener('click',openScroll);
 invite.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openScroll();}});
-document.getElementById('openBtn').addEventListener('click',openScroll);
 
 /* SELO DE CERA — INTRO */
 const seal=document.getElementById('waxSeal');
@@ -304,6 +292,8 @@ seal.addEventListener('click',async()=>{
   await wait(reduceMotion?0:900);
   intro.classList.add('hide');
   invite.classList.add('show');
+  await wait(reduceMotion?0:700);
+  openScroll();
 });
 
 document.getElementById('revealBtn').addEventListener('click',e=>{
