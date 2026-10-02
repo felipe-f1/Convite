@@ -281,6 +281,10 @@ const scrollSound=document.getElementById('scrollSound');
 const music=document.getElementById('music');
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 const safePlay=el=>{const p=el.play();if(p&&p.catch)p.catch(()=>{})};
+music.volume=0.3;
+safePlay(music);
+const tryMusicOnFirstInteraction=()=>{safePlay(music)};
+['click','touchstart','keydown'].forEach(evt=>document.addEventListener(evt,tryMusicOnFirstInteraction,{once:true}));
 seal.addEventListener('click',async()=>{
   music.volume=0.3;
   safePlay(music);
